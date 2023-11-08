@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    text-align: center;
+    
+}
+
+:root {
+    --primary-color: #f6f7fb;
+    --white-color: #fff;
+    --black-color: #18191a;
+    --red-color: #e74c3c;
+}
+
+body.darkMode {
+    --black-color: #fff;
+    --white-color: #18191a;
+    --primary-color: #222;
+}
+
+.analog-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    
+}
+.clock {
+    width: 400px;
+    height: 400px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.clock label {
+    position: absolute;
+    text-align: center;
+    transform: rotate(calc(var(--i) * (360deg / 12)));
+    inset: 20px;
+}
+.clock label span {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--black-color);
+    transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
+
+.indictor {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    display: flex;
+    justify-content: center;
+}
+.indictor::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid red;
+    background-color: var(--black-color);
+    z-index: 100;
+}
+.hand {
+    width: 4px;
+    height: 130px;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--red-color);
+    transform-origin: bottom;
+    border-radius: 30px;
+}
+.hand.mins {
+    width: 5px;
+    height: 120px;
+    background-color: var(--black-color);
+}
+.hand.hour {
+    width: 8px;
+    height: 100px;
+    background-color: var(--black-color);
+}
+.switch-btn {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-weight: 600;
+    padding: 10px 0;
+    width: 120px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.name h3 {
+    width: 200px;
+    margin-top: -40px;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--black-color);
+}
+
+.audio {
+    background-color: red;
+    width: 100px;
+}
+
+
+.digital-clock {
+    width: 300px;
+    background-color: var(--black-color);
+    height: 70px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    line-height: 70px;
+}
+.digital-clock h3 {
+    color: red;
+    font-size: 40px;
+}
+
+.alarm-main {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+.eyes {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background-color: red;
+    z-index: -1;
+}
+
+.alarm-main button {
+    width: 25px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    animation: buttonAnim 2s linear infinite;
+    cursor: pointer;
+}
+.alarm-main i {
+    font-size: 150px;
+    color: var(--black-color);
+}
+
+@keyframes buttonAnim {
+    33% {
+        margin-top: 0;
+    }
+    66% {
+        margin-top: -40px;
+    }
+    99% {
+        margin-top: 0;
+    }
+}
+
+.eyes-green {
+    background-color: green;
+}
+.upDown {
+    animation: upDown 0.5s linear infinite;
+}
+@keyframes upDown {
+    50% {
+        top: 47%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+
+.button-control {
+    width: 200px;
+    height: 250px;
+    background-color: var(--black-color);
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    padding: 10px;
+}
+.color-items {
+    text-align: center;
+}
+.color-items span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 2px;
+    cursor: pointer;
+}
+.color-items span:nth-child(1){
+    background-color: var(--white-color);
+}
+.color-items span:nth-child(2){
+    background-color: #e7155b;
+}
+.color-items span:nth-child(3){
+    background-color: #29eb0f;
+}
+.color-items span:nth-child(4){
+    background-color: #eb0deb;
+}
+.color-items span:nth-child(5){
+    background-color: cyan;
+}
+.button-control h4 {
+    color: var(--white-color);
+    margin: 0 0 10px 0;
+}
+
+.change-color-items {
+    text-align: center;
+}
+.change-color-items span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 2px;
+    cursor: pointer;
+    background-color: red;
+}
+.change-color-items span:nth-child(1){
+    background-color: var(--black-color);
+    border: 2px solid gray;
+}
+.change-color-items span:nth-child(2){
+    background-color: #f50a93;
+}
+.change-color-items span:nth-child(3){
+    background-color: #f3a806;
+}
+.change-color-items span:nth-child(4){
+    background-color: #eb0d1f;
+}
+.change-color-items span:nth-child(5){
+    background-color: #0011ff;
+}
